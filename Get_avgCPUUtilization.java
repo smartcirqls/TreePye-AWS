@@ -83,7 +83,7 @@ private void postElasticAwsInstance(String instanceID, double avgCPUUtilization,
 	    DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("GMT"));
 	    String date = DATE_FORMAT.format(now)+"T"+DATE_FORMAT_time.format(now);
 //		System.out.println(date);
-		String command[]= {"curl","-XPOST","localhost:9200/avgcpuutilization/avgcpuutilization/","-H","Content-Type:application/json","-d","{\"post_date\":\""+date+"\",\"region\":\""+region+"\",\"instanceID\":\""+instanceID+"\",\"avgCPUUtilization\":\""+avgCPUUtilization+"\"}"};
+		String command[]= {"curl","-XPOST","localhost:9200/avgcpuutilization/avgcpuutilization/","-H","Content-Type:application/json","-d","{\"post_date\":\""+date+"\",\"region\":\""+region+"\",\"instanceID\":\""+instanceID+"\",\"avgCPUUtilization\":"+avgCPUUtilization+"}"};
 		ProcessBuilder builder = new ProcessBuilder(command);
 	    builder.start();
 	}
